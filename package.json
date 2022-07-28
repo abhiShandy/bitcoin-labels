@@ -1,0 +1,31 @@
+{
+  "name": "bit-table",
+  "version": "0.1.0",
+  "description": "Table of transactions from multiple Bitcoin wallets",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bip32": "^3.0.1",
+    "bitcoinjs-lib": "^6.0.2",
+    "bs58check": "^2.1.2",
+    "next": "^12.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tiny-secp256k1": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/bs58check": "^2.1.0",
+    "@types/react": "^18.0.15",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.6",
+    "typescript": "^4.7.4"
+  }
+}
