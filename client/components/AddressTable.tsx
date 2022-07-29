@@ -1,7 +1,11 @@
 import React from "react";
 import AddressBalance from "./AddressBalance";
 
-export default function AddressTable({ addressList }) {
+export default function AddressTable({
+  addressList,
+}: {
+  addressList: string[];
+}) {
   if (addressList.length === 0) return <></>;
   return (
     <div className="mt-4">

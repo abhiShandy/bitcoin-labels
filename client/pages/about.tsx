@@ -33,6 +33,13 @@ export default function About() {
             and backend is hosted on{" "}
             <ExternalLink href="https://aws.amazon.com/">AWS</ExternalLink>.
           </p>
+          <p>
+            Bitcoin blockchain data is pulled from{" "}
+            <ExternalLink href="https://mempool.space/docs/api/rest">
+              mempool.space
+            </ExternalLink>{" "}
+            REST API.
+          </p>
         </div>
       </SidebarLayout>
     </>

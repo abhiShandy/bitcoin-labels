@@ -1,8 +1,7 @@
-import React from "react";
-import { useRouter } from "next/router";
+import React, { useState } from "react";
 
-export default function MasterPubKeyForm({ xpub, setXpub }) {
-  const router = useRouter();
+export default function MasterPubKeyForm({ onSubmit }) {
+  const [xpub, setXpub] = useState("");
   return (
     <form>
       <div className="flex flex-col mt-4">
@@ -22,7 +21,7 @@ export default function MasterPubKeyForm({ xpub, setXpub }) {
       <button
         onClick={(e) => {
           e.preventDefault();
-          router.push("/address");
+          onSubmit(xpub);
         }}
         className="bg-gray-500 p-2 text-white rounded mt-2"
       >
