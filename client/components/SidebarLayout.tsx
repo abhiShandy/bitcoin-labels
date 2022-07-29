@@ -2,6 +2,7 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
+  CashIcon,
   HomeIcon,
   InformationCircleIcon,
   MenuIcon,
@@ -18,9 +19,15 @@ export default function SidebarLayout({ children, title }) {
 
   const navigation = [
     {
-      name: "Address",
+      name: "Home",
       href: "/",
       icon: HomeIcon,
+      current: title === "Home",
+    },
+    {
+      name: "Address",
+      href: "/address",
+      icon: CashIcon,
       current: title === "Address",
     },
     {

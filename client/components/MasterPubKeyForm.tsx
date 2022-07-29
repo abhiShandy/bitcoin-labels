@@ -1,6 +1,8 @@
 import React from "react";
+import { useRouter } from "next/router";
 
-export default function MasterPubKeyForm({ xpub, setXpub, generateAddress }) {
+export default function MasterPubKeyForm({ xpub, setXpub }) {
+  const router = useRouter();
   return (
     <form>
       <div className="flex flex-col mt-4">
@@ -18,10 +20,13 @@ export default function MasterPubKeyForm({ xpub, setXpub, generateAddress }) {
         ></textarea>
       </div>
       <button
-        onClick={generateAddress}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/address");
+        }}
         className="bg-gray-500 p-2 text-white rounded mt-2"
       >
-        Generate Address
+        Submit
       </button>
     </form>
   );

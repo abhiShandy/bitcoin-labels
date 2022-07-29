@@ -1,37 +1,18 @@
 import Head from "next/head";
-import React, { MouseEventHandler, useState } from "react";
-import publicKeyToAddressList from "../utils/publicKeyToAddressList";
+import React, { useContext } from "react";
 import MasterPubKeyForm from "../components/MasterPubKeyForm";
-import AddressTable from "../components/AddressTable";
 import SidebarLayout from "../components/SidebarLayout";
+import XpubContext from "../contexts/Xpub";
 
 export default function HomePage() {
-  const [xpub, setXpub] = useState("");
-  const [addressList, setAddressList] = useState<string[]>([]);
-  const generateAddress: MouseEventHandler = (e) => {
-    e.preventDefault();
-    let response: string[];
-    try {
-      response = publicKeyToAddressList(xpub);
-      setAddressList(response);
-    } catch (error) {
-      alert("Error calculating addresses");
-    }
-  };
+  const { xpub, setXpub } = useContext(XpubContext);
   return (
     <>
       <Head>
         <title>Bit Table</title>
       </Head>
-      <SidebarLayout title="Address">
-        {addressList.length === 0 && (
-          <MasterPubKeyForm
-            xpub={xpub}
-            setXpub={setXpub}
-            generateAddress={generateAddress}
-          />
-        )}
-        <AddressTable addressList={addressList} />
+      <SidebarLayout title="Home">
+        <MasterPubKeyForm xpub={xpub} setXpub={setXpub} />
       </SidebarLayout>
     </>
   );
