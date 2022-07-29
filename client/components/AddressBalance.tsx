@@ -21,7 +21,7 @@ export default function AddressBalance({ address }) {
     };
 
     getTransactions();
-  }, [balance]);
+  }, [balance, address]);
 
   return (
     <>
