@@ -4,7 +4,9 @@ export default function MasterPubKeyForm({ xpub, setXpub, generateAddress }) {
   return (
     <form>
       <div className="flex flex-col mt-4">
-        <label className="text-lg pb-2">Enter master public key</label>
+        <label className="text-lg pb-2">
+          Paste a master public key (starting with zpub)
+        </label>
         <textarea
           className="border-2 rounded p-2"
           value={xpub}

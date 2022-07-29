@@ -1,7 +1,13 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { HomeIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import {
+  HomeIcon,
+  InformationCircleIcon,
+  MenuIcon,
+  XIcon,
+} from "@heroicons/react/outline";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -13,9 +19,15 @@ export default function SidebarLayout({ children, title }) {
   const navigation = [
     {
       name: "Address",
-      href: "#",
+      href: "/",
       icon: HomeIcon,
       current: title === "Address",
+    },
+    {
+      name: "About",
+      href: "/about",
+      icon: InformationCircleIcon,
+      current: title === "About",
     },
   ];
 
@@ -155,22 +167,22 @@ export default function SidebarLayout({ children, title }) {
               </div> */}
               <nav className="mt-5 flex-1 px-2 space-y-1">
                 {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? "bg-indigo-800 text-white"
-                        : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
-                      "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                    )}
-                  >
-                    <item.icon
-                      className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300"
-                      aria-hidden="true"
-                    />
-                    {item.name}
-                  </a>
+                  <Link key={item.name} href={item.href}>
+                    <span
+                      className={classNames(
+                        item.current
+                          ? "bg-indigo-800 text-white"
+                          : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
+                        "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                      )}
+                    >
+                      <item.icon
+                        className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300"
+                        aria-hidden="true"
+                      />
+                      {item.name}
+                    </span>
+                  </Link>
                 ))}
               </nav>
             </div>
