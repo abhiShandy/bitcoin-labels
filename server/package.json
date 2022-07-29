@@ -1,14 +1,12 @@
 {
-  "name": "server",
+  "name": "bit-table-server",
   "version": "0.1.0",
   "bin": {
     "server": "bin/server.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "deploy": "cdk deploy --all"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.101",
@@ -25,7 +23,6 @@
   "dependencies": {
     "@mempool/mempool.js": "^2.3.0",
     "aws-cdk-lib": "2.33.0",
-    "constructs": "^10.0.0",
-    "source-map-support": "^0.5.21"
+    "constructs": "^10.0.0"
   }
 }
