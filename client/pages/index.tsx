@@ -3,6 +3,7 @@ import React, { MouseEventHandler, useState } from "react";
 import publicKeyToAddressList from "../utils/publicKeyToAddressList";
 import MasterPubKeyForm from "../components/MasterPubKeyForm";
 import AddressTable from "../components/AddressTable";
+import AddressBalance from "../components/AddressBalance";
 
 export default function HomePage() {
   const [xpub, setXpub] = useState("");
