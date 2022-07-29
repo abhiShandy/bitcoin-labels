@@ -10,7 +10,7 @@ export default function AddressBalance({ address }) {
       setIsLoading(true);
       try {
         const response = await axios.get<{ balance: number }>(
-          `/api/address/balance/${address}`
+          `${process.env.NEXT_PUBLIC_API_URL}address/balance/${address}`
         );
         setBalance(response.data.balance / 1e8);
       } catch (error) {
@@ -21,7 +21,7 @@ export default function AddressBalance({ address }) {
     };
 
     getTransactions();
-  });
+  }, [balance]);
 
   return (
     <>

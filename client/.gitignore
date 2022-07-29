@@ -2,3 +2,4 @@ node_modules
 
 # NextJS
 .next
+.env.local

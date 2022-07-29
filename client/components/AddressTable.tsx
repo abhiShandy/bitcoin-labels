@@ -1,4 +1,5 @@
 import React from "react";
+import AddressBalance from "./AddressBalance";
 
 export default function AddressTable({ addressList }) {
   if (addressList.length === 0) return <></>;
@@ -30,7 +31,9 @@ export default function AddressTable({ addressList }) {
                     >
                       Address
                     </th>
-                    <th>Balance</th>
+                    <th className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
+                      Balance
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
@@ -39,7 +42,9 @@ export default function AddressTable({ addressList }) {
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                         {address}
                       </td>
-                      <td></td>
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
+                        <AddressBalance address={address} />
+                      </td>
                     </tr>
                   ))}
                 </tbody>
