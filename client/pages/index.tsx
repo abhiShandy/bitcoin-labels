@@ -3,6 +3,7 @@ import React, { MouseEventHandler, useState } from "react";
 import publicKeyToAddressList from "../utils/publicKeyToAddressList";
 import MasterPubKeyForm from "../components/MasterPubKeyForm";
 import AddressTable from "../components/AddressTable";
+import SidebarLayout from "../components/SidebarLayout";
 
 export default function HomePage() {
   const [xpub, setXpub] = useState("");
@@ -22,7 +23,7 @@ export default function HomePage() {
       <Head>
         <title>Bit Table</title>
       </Head>
-      <main className="w-8/12 mx-auto">
+      <SidebarLayout title="Address">
         {addressList.length === 0 && (
           <MasterPubKeyForm
             xpub={xpub}
@@ -31,7 +32,7 @@ export default function HomePage() {
           />
         )}
         <AddressTable addressList={addressList} />
-      </main>
+      </SidebarLayout>
     </>
   );
 }
