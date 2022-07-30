@@ -1,4 +1,5 @@
 import React from "react";
+import Address from "./Address";
 import AddressBalance from "./AddressBalance";
 
 export default function AddressTable({
@@ -44,7 +45,7 @@ export default function AddressTable({
                   {addressList.map((address) => (
                     <tr key={address}>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                        {address}
+                        <Address address={address} />
                       </td>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
                         <AddressBalance address={address} />
