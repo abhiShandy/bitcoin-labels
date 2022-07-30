@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import AddressItem from "./AddressItem";
+import MempoolSpaceAddressItem from "./mempoolSpace/AddressItem";
 import MempoolSpaceContext from "../contexts/MempoolSpace";
 
 export default function AddressList({
@@ -14,9 +15,9 @@ export default function AddressList({
   return (
     <ol role="list" className="divide-y divide-gray-200 list-decimal ml-4">
       {addressList.map((address) => (
-        <li key={address} className="py-4">
-          <AddressItem address={address} />
-          {/* {enabled && <MempoolSpaceAddressItem address={address} />} */}
+        <li key={address} className="pt-4 pb-2">
+          {!enabled && <AddressItem address={address} className="" />}
+          {enabled && <MempoolSpaceAddressItem address={address} />}
         </li>
       ))}
     </ol>

@@ -1,13 +1,15 @@
 import React from "react";
 
-export default function Address({ address }: { address: string }) {
+export default function Address({
+  address,
+  className,
+}: {
+  address: string;
+  className: string;
+}) {
   return (
-    <div>
-      <div>
-        {address.substring(0, 10) +
-          "..." +
-          address.substring(address.length - 4)}
-      </div>
+    <div className={className}>
+      {address.substring(0, 10) + "..." + address.substring(address.length - 4)}
     </div>
   );
 }
