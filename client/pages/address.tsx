@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import SidebarLayout from "../components/SidebarLayout";
-import AddressTable from "../components/AddressTable";
+import AddressList from "../components/AddressList";
 import publicKeyToAddressList from "../utils/publicKeyToAddressList";
 import { useRouter } from "next/router";
 import XPubContext from "../contexts/XPub";
@@ -34,7 +34,7 @@ export default function AddressPage() {
         <title>Address | Bit Table</title>
       </Head>
       <SidebarLayout title="Address">
-        <AddressTable addressList={addressList} />
+        <AddressList addressList={addressList} />
       </SidebarLayout>
     </>
   );
