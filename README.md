@@ -6,7 +6,7 @@
 
 ## How to use online?
 
-Visit [https://bit-table.vercel.app](bit-table.vercel.app)
+Visit [bit-table.vercel.app](https://bit-table.vercel.app)
 
 ## How to run locally?
 
@@ -14,7 +14,7 @@ Visit [https://bit-table.vercel.app](bit-table.vercel.app)
 2. Navigate to the client folder
 3. Install dependencies using `npm install`
 4. Run the app using `npm run dev`
-5. Open [http://localhost:3000/](localhost:3000) on your browser
+5. Open [localhost:3000](http://localhost:3000) on your browser
 
 ## How to share feedback?
 
