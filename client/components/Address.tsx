@@ -1,9 +1,13 @@
 import React from "react";
 
-export default function Address({ address }) {
+export default function Address({ address }: { address: string }) {
   return (
     <div>
-      <div>{address}</div>
+      <div>
+        {address.substring(0, 4) +
+          "..." +
+          address.substring(address.length - 4)}
+      </div>
       <div>
         <a
           className="text-sm text-indigo-500 font-light"
