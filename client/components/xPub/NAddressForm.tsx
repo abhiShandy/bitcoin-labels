@@ -12,7 +12,7 @@ export default function NAddressForm({
     <div className="flex place-content-between mt-4">
       <label className="my-auto">Address Depth</label>
       <input
-        className="border-2 rounded p-1"
+        className="border-2 rounded p-1 w-16"
         type="number"
         min={1}
         step={1}
