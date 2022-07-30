@@ -13,7 +13,7 @@ const prefixes = new Map([
   ["Vpub", "02575483"],
 ]);
 
-export default function xpubConverter(xpub: string, targetFormat: string) {
+export default function xpubConverter(xpub: string, targetFormat = "xpub") {
   if (!prefixes.has(targetFormat)) {
     return "Invalid target version";
   }
@@ -28,7 +28,7 @@ export default function xpubConverter(xpub: string, targetFormat: string) {
       data,
     ]);
     return bs58check.encode(data);
-  } catch (err) {
-    return "Invalid extended public key";
+  } catch (error) {
+    throw new Error("Invalid extended public key");
   }
 }

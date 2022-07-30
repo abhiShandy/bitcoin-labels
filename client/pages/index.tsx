@@ -11,7 +11,6 @@ export default function HomePage() {
   const router = useRouter();
 
   const handleSubmit = (xpub: string) => {
-    // TODO: validate XPUB
     setXpub(xpub);
     router.push("/address");
   };
@@ -23,9 +22,11 @@ export default function HomePage() {
       </Head>
       <SidebarLayout title="Home">
         {!xpub && <MasterPubKeyForm onSubmit={handleSubmit} />}
+
         {xpub && (
           <div>
-            Current XPUB:<p>{xpub}</p>
+            <p className="font-bold">Your extended public key</p>
+            <p>{xpub}</p>
           </div>
         )}
       </SidebarLayout>
