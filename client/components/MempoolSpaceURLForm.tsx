@@ -27,7 +27,7 @@ export default function MempoolSpaceURLForm({
   };
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 flex flex-col">
       <label className="text-lg">URL of trusted mempool.space instance</label>
       <input
         type="url"
