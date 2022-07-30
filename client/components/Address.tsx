@@ -1,10 +1,6 @@
-import React, { useContext } from "react";
-import ExplorerContext from "../contexts/Explorer";
-import MempoolSpaceAddressLink from "./MempoolSpaceAddressLink";
+import React from "react";
 
 export default function Address({ address }: { address: string }) {
-  const { explorerURL } = useContext(ExplorerContext);
-
   return (
     <div>
       <div>
@@ -12,7 +8,6 @@ export default function Address({ address }: { address: string }) {
           "..." +
           address.substring(address.length - 4)}
       </div>
-      <MempoolSpaceAddressLink url={explorerURL} address={address} />
     </div>
   );
 }

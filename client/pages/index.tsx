@@ -1,17 +1,22 @@
 import Head from "next/head";
 import React, { MouseEventHandler, useContext, useState } from "react";
-import MasterPubKeyForm from "../components/MasterPubKeyForm";
 import SidebarLayout from "../components/SidebarLayout";
-import XpubContext from "../contexts/Xpub";
-import ExplorerContext from "../contexts/Explorer";
+import XPubContext from "../contexts/XPub";
 import { useRouter } from "next/router";
-import MempoolSpaceURLForm from "../components/MempoolSpaceURLForm";
+import XPubFeature from "../components/xPub/Feature";
+// import MempoolSpaceContext from "../contexts/MempoolSpace";
+// import MempoolSpaceFeature from "../components/mempoolSpace/feature";
 
 export default function HomePage() {
-  const { xpub, setXpub } = useContext(XpubContext);
-  const { explorerURL, setExplorerURL } = useContext(ExplorerContext);
+  const { xPub, setXPub, nAddress, setNAddress } = useContext(XPubContext);
+  // const {
+  //   url: mempoolSpaceUrl,
+  //   enabled: mempoolSpaceEnabled,
+  //   setUrl: setMempoolSpaceUrl,
+  //   setEnabled: setMempoolSpaceEnabled,
+  // } = useContext(MempoolSpaceContext);
 
-  const [error, setError] = useState(!xpub && !explorerURL);
+  const [error, setError] = useState(!xPub);
 
   const router = useRouter();
 
@@ -25,22 +30,27 @@ export default function HomePage() {
         <title>Bit Table</title>
       </Head>
       <SidebarLayout title="Home">
-        <MasterPubKeyForm
-          value={xpub}
+        <XPubFeature
+          xPub={xPub}
+          nAddress={nAddress}
           onError={() => setError(true)}
-          onSuccess={(xpub) => {
-            setXpub(xpub);
+          onSuccess={(xPub, nAddress) => {
+            setXPub(xPub);
+            setNAddress(nAddress);
             setError(false);
           }}
         />
-        <MempoolSpaceURLForm
-          value={explorerURL}
+        {/* <MempoolSpaceFeature
+          enabled={mempoolSpaceEnabled}
+          url={mempoolSpaceUrl}
           onError={() => setError(true)}
           onSuccess={(url) => {
-            setExplorerURL(url);
+            setMempoolSpaceEnabled(true);
+            setMempoolSpaceUrl(url);
             setError(false);
           }}
-        />
+        /> */}
+
         {error && (
           <button
             className="mt-6 bg-red-200 text-white p-2 rounded"

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import MempoolSpaceContext from "../../contexts/MempoolSpace";
 
 export default function MempoolSpaceAddressLink({
-  url,
   address,
 }: {
-  url: string;
   address: string;
 }) {
+  const { url } = useContext(MempoolSpaceContext);
   return (
     <div>
       <a

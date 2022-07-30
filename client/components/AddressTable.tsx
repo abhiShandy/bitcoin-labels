@@ -1,6 +1,5 @@
 import React from "react";
 import Address from "./Address";
-import AddressBalance from "./AddressBalance";
 
 export default function AddressTable({
   addressList,
@@ -28,20 +27,21 @@ export default function AddressTable({
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
               <table className="min-w-full divide-y divide-gray-300">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-50 text-sm font-semibold text-gray-900">
                   <tr>
-                    <th
-                      scope="col"
-                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                    >
-                      Address
+                    <th className="py-3.5 pl-4 pr-3 text-left sm:pl-6">
+                      Depth
                     </th>
+                    <th className="py-3.5 pl-4 pr-3 text-left">Address</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {addressList.map((address) => (
+                  {addressList.map((address, index) => (
                     <tr key={address}>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                        {index}
+                      </td>
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
                         <Address address={address} />
                       </td>
                     </tr>
