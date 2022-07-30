@@ -39,7 +39,7 @@ export default function MasterPubKeyForm({
         </span>
       </label>
       <textarea
-        className={`border-2 rounded p-2 h-32 ${
+        className={`border-2 rounded p-2 h-32 lg:h-auto ${
           error ? "border-red-500 outline-red-500" : ""
         }`}
         value={xpub}
