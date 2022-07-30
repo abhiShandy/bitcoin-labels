@@ -15,8 +15,9 @@ export default function MempoolSpaceURLForm({
     const url = e.target.value;
     setExplorerURL(url);
     if (
-      url.substring(0, 7) === "http://" ||
-      url.substring(0, 8) === "https://"
+      (url.substring(0, 7) === "http://" ||
+        url.substring(0, 8) === "https://") &&
+      url[url.length - 1] === "/"
     ) {
       onSuccess(url);
       setError(false);
@@ -27,11 +28,11 @@ export default function MempoolSpaceURLForm({
   };
 
   return (
-    <div className="mt-6 flex flex-col">
-      <label className="text-lg">URL of trusted mempool.space instance</label>
+    <div className="mt-2 flex place-content-between">
+      <label className="my-auto">URL</label>
       <input
         type="url"
-        className={`border-2 rounded p-2 mt-2 w-full max-w-sm ${
+        className={`border-2 rounded p-2 mt-2 w-64 min-w-lg ${
           error ? "outline-red-500" : ""
         }`}
         required

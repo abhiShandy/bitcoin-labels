@@ -1,22 +1,27 @@
 import { Switch } from "@headlessui/react";
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * React component to enable using mempool.space
  */
 export default function MempoolSpaceToggle({
-  enabled,
-  setEnabled,
+  value,
+  onChange,
 }: {
-  enabled: boolean;
-  setEnabled: React.Dispatch<React.SetStateAction<boolean>>;
+  value: boolean;
+  onChange: (value: boolean) => void;
 }) {
+  const [enabled, setEnabled] = useState(value);
+
   return (
-    <div className="py-4">
+    <div className="mt-2 flex place-content-between">
       <p>Use mempool.space instance</p>
       <Switch
         checked={enabled}
-        onChange={setEnabled}
+        onChange={(e) => {
+          setEnabled(e);
+          onChange(e);
+        }}
         className={`${enabled ? "bg-indigo-500" : "bg-gray-500"}
           relative inline-flex h-[24px] w-[48px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
       >
