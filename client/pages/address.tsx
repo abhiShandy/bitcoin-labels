@@ -11,19 +11,15 @@ export default function AddressPage() {
   const { xpub } = useContext(XpubContext);
   const [addressList, setAddressList] = useState<string[]>([]);
   const router = useRouter();
-  const { explorerURL } = useContext(ExplorerContext);
 
   useEffect(() => {
     const generateAddressList = async () => {
-      console.log(explorerURL);
-
       if (!xpub) router.push("/");
       try {
         const response = publicKeyToAddressList(xpub);
         if (response.length === 0) console.log("No address found");
         setAddressList(response);
       } catch (error) {
-        console.log(xpub);
         console.log("Error getting addresses. Check XPUB!");
         router.push("/");
       }

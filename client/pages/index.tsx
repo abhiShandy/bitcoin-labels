@@ -11,7 +11,7 @@ export default function HomePage() {
   const { xpub, setXpub } = useContext(XpubContext);
   const { explorerURL, setExplorerURL } = useContext(ExplorerContext);
 
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(!xpub && !explorerURL);
 
   const router = useRouter();
 
