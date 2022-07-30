@@ -36,9 +36,6 @@ export default function AddressTable({
                     >
                       Address
                     </th>
-                    <th className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
-                      Balance
-                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
@@ -46,9 +43,6 @@ export default function AddressTable({
                     <tr key={address}>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                         <Address address={address} />
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                        <AddressBalance address={address} />
                       </td>
                     </tr>
                   ))}

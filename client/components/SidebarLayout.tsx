@@ -111,22 +111,22 @@ export default function SidebarLayout({ children, title }) {
                     </div> */}
                     <nav className="mt-5 px-2 space-y-1">
                       {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? "bg-indigo-800 text-white"
-                              : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
-                            "group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                          )}
-                        >
-                          <item.icon
-                            className="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
-                            aria-hidden="true"
-                          />
-                          {item.name}
-                        </a>
+                        <Link key={item.name} href={item.href}>
+                          <span
+                            className={classNames(
+                              item.current
+                                ? "bg-indigo-800 text-white"
+                                : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
+                              "group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            )}
+                          >
+                            <item.icon
+                              className="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
+                              aria-hidden="true"
+                            />
+                            {item.name}
+                          </span>
+                        </Link>
                       ))}
                     </nav>
                   </div>
