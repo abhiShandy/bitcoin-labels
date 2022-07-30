@@ -6,7 +6,7 @@ import ExplorerContext from "../contexts/Explorer";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [xpub, setXpub] = useState("");
-  const [explorerURL, setExplorerURL] = useState("https://mempool.space/");
+  const [explorerURL, setExplorerURL] = useState("");
   return (
     <XpubContext.Provider value={{ xpub, setXpub }}>
       <ExplorerContext.Provider value={{ explorerURL, setExplorerURL }}>

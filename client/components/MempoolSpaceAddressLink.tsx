@@ -15,7 +15,7 @@ export default function MempoolSpaceAddressLink({
         target="_blank"
         rel="noreferrer"
       >
-        view on mempool.space
+        view on explorer
       </a>
     </div>
   );
