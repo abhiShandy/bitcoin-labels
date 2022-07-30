@@ -12,11 +12,15 @@ export default function About() {
       </Head>
       <SidebarLayout title="About">
         <div className="flex flex-col gap-4">
-          <p className="text-orange-500 flex">
-            <ExclamationIcon className="h-6" />
-            This project is work in progress.
-          </p>
           <p>An open-source project to account for every transaction.</p>
+          <div>
+            <p>Features:</p>
+            <ol className="list-decimal ml-6">
+              <li>
+                Generate bc1 addresses from a zpub till a given depth (v0.1.0)
+              </li>
+            </ol>
+          </div>
           <p>Built by Abhishek Shandilya.</p>
           <p>
             Report issues and share feedback on{" "}
@@ -29,16 +33,8 @@ export default function About() {
             Frontend is hosted on{" "}
             <ExternalLink href="https://vercel.com/abhishandy">
               Vercel
-            </ExternalLink>{" "}
-            and backend is hosted on{" "}
-            <ExternalLink href="https://aws.amazon.com/">AWS</ExternalLink>.
-          </p>
-          <p>
-            Bitcoin blockchain data is pulled from{" "}
-            <ExternalLink href="https://mempool.space/docs/api/rest">
-              mempool.space
-            </ExternalLink>{" "}
-            REST API.
+            </ExternalLink>
+            .
           </p>
         </div>
       </SidebarLayout>
