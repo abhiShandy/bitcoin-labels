@@ -3,9 +3,9 @@
   "version": "0.2.1",
   "description": "Privately label your Bitcoin transactions.",
   "scripts": {
-    "dev": "next dev -p 3047",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3047",
+    "start": "next start",
     "lint": "next lint"
   },
   "keywords": [],
