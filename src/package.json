@@ -1,11 +1,11 @@
 {
-  "name": "bit-table",
-  "version": "0.1.0",
-  "description": "Table of transactions from multiple Bitcoin wallets",
+  "name": "bitcoin-labels",
+  "version": "0.2.1",
+  "description": "Privately label your Bitcoin transactions.",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3047",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3047",
     "lint": "next lint"
   },
   "keywords": [],

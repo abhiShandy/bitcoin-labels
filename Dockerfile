@@ -13,5 +13,5 @@ FROM node:16-buster-slim
 USER 1000
 WORKDIR /build
 COPY --from=builder /build .
-EXPOSE 3000
+EXPOSE 3047
 CMD ["npm", "run", "start"]
