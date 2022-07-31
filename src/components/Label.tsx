@@ -10,7 +10,7 @@ export default function Label({
   const borderColor = `border-${color}-500`;
   return (
     <div
-      className={`text-xs px-1 mx-1 font-light rounded-xl inline-block text-${color}-500 border ${borderColor}`}
+      className={`text-xs px-1 mr-1 font-light rounded-xl inline-block text-${color}-500 border ${borderColor}`}
     >
       {label.toLowerCase()}
     </div>
