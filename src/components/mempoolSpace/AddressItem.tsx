@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import MempoolSpaceContext from "../../contexts/MempoolSpace";
-import Address from "../AddressItem";
+import Address from "../Address";
 import { ExternalLinkIcon } from "@heroicons/react/outline";
+import Label from "../Label";
 
 type Stats = {
   funded_txo_count: number;
@@ -71,8 +72,9 @@ export default function AddressBalance({ address }) {
           </div>
           <div className="flex text-xs">
             <div className="w-3/6">
-              {txCount > 0 && <span className="text-red-500">used</span>}
-              {txCount === 0 && <span className="text-green-500">unused</span>}
+              {txCount > 0 && <Label label="used" color="red" />}
+              {txCount === 0 && <Label label="unused" color="green" />}
+              <Label label="sample" color="indigo" />
             </div>
             <div className="w-2/6 text-right">{txCount} TX</div>
           </div>

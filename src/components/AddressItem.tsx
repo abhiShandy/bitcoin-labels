@@ -1,15 +1,12 @@
 import React from "react";
+import Address from "./Address";
+import Label from "./Label";
 
-export default function Address({
-  address,
-  className,
-}: {
-  address: string;
-  className: string;
-}) {
+export default function AddressItem({ address }: { address: string }) {
   return (
-    <div className={className}>
-      {address.substring(0, 10) + "..." + address.substring(address.length - 4)}
-    </div>
+    <>
+      <Address address={address} className="" />
+      <Label label="Sample" color="indigo" />
+    </>
   );
 }
