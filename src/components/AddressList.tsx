@@ -16,7 +16,7 @@ export default function AddressList({
     <ol role="list" className="divide-y divide-gray-200 list-decimal ml-4">
       {addressList.map((address) => (
         <li key={address} className="pt-4 pb-2">
-          {!enabled && <AddressItem address={address} className="" />}
+          {!enabled && <AddressItem address={address} />}
           {enabled && <MempoolSpaceAddressItem address={address} />}
         </li>
       ))}

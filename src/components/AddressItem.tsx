@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import Address from "./Address";
+import Label from "./Label";
+import LabelFormModal from "./LabelFormModal";
 
-export default function Address({
-  address,
-  className,
-}: {
-  address: string;
-  className: string;
-}) {
+export default function AddressItem({ address }: { address: string }) {
+  const [label, setLabel] = useState("");
+
   return (
-    <div className={className}>
-      {address.substring(0, 10) + "..." + address.substring(address.length - 4)}
-    </div>
+    <>
+      <Address address={address} className="" />
+      <div className="flex justify-end">
+        <Label label={label} color="indigo" />
+        <LabelFormModal
+          label={label}
+          onSubmit={(label) => {
+            setLabel(label);
+          }}
+        />
+      </div>
+    </>
   );
 }

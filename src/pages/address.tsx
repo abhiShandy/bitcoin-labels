@@ -13,8 +13,6 @@ export default function AddressPage() {
 
   useEffect(() => {
     const generateAddressList = async () => {
-      console.log(xPub, nAddress);
-
       if (!xPub) router.push("/");
       try {
         const response = publicKeyToAddressList(xPub, nAddress);

@@ -2,6 +2,7 @@ import SidebarLayout from "../components/SidebarLayout";
 import React from "react";
 import Head from "next/head";
 import ExternalLink from "../components/ExternalLink";
+import FeatureList from "../components/FeatureList";
 
 export default function About() {
   return (
@@ -15,16 +16,19 @@ export default function About() {
             An open-source project to privately label your Bitcoin transactions.
           </p>
           <div>
-            <p>Features:</p>
-            <ol className="list-decimal ml-6">
-              <li>
-                Generate bc1 addresses from a zpub till a given depth (v0.1)
-              </li>
+            <p className="font-semibold mb-2">Features:</p>
+            <FeatureList version="v0.3">
+              <li>Add a label to Bitcoin address</li>
+            </FeatureList>
+            <FeatureList version="v0.2">
               <li>
                 Check status and balance of the associated addresses using a
-                trusted mempool.space instance (v0.2)
+                trusted mempool.space instance
               </li>
-            </ol>
+            </FeatureList>
+            <FeatureList version="v0.1">
+              <li>Generate bc1 addresses from a zpub till a given depth</li>
+            </FeatureList>
           </div>
           <p>Built by Abhishek Shandilya.</p>
           <p>

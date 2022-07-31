@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import MempoolSpaceContext from "../../contexts/MempoolSpace";
-import Address from "../AddressItem";
+import Address from "../Address";
 import { ExternalLinkIcon } from "@heroicons/react/outline";
+import Label from "../Label";
+import LabelFormModal from "../LabelFormModal";
 
 type Stats = {
   funded_txo_count: number;
@@ -21,6 +23,7 @@ type GetAddress = {
 export default function AddressBalance({ address }) {
   const [balance, setBalance] = useState(0);
   const [txCount, setTxCount] = useState(0);
+  const [label, setLabel] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const { url } = useContext(MempoolSpaceContext);
 
@@ -70,11 +73,18 @@ export default function AddressBalance({ address }) {
             </div>
           </div>
           <div className="flex text-xs">
-            <div className="w-3/6">
-              {txCount > 0 && <span className="text-red-500">used</span>}
-              {txCount === 0 && <span className="text-green-500">unused</span>}
+            <div className="w-4/6 flex my-1">
+              {txCount > 0 && <Label label="used" color="red" />}
+              {txCount === 0 && <Label label="unused" color="green" />}
+              <Label label={label} color="indigo" />
+              <LabelFormModal
+                label={label}
+                onSubmit={(label) => {
+                  setLabel(label);
+                }}
+              />
             </div>
-            <div className="w-2/6 text-right">{txCount} TX</div>
+            <div className="w-1/6 text-right">{txCount} TX</div>
           </div>
         </div>
       )}
