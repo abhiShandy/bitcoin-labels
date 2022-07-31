@@ -3,7 +3,7 @@ FROM node:16-buster-slim AS builder
 WORKDIR /build
 RUN apt-get update
 RUN apt-get install -y git build-essential
-COPY ./src .
+COPY . .
 RUN npm ci --include=dev
 RUN npx next telemetry disable
 RUN npm run build

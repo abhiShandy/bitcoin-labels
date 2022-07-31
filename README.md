@@ -23,7 +23,7 @@ zpub6mszQkocDp9ZUPEPAnUB1S8sZLRrMVjNGe34xERgvQoLtRpXq9xqHKZ2BDqJoGTwWzqVFBfhwN9W
 ## How to run locally?
 
 1. Clone this repo
-2. Navigate to the client folder
+2. Navigate to the `frontend` folder
 3. Install dependencies using `npm install`
 4. Run the app using `npm run dev`
 5. Open [localhost:3000](http://localhost:3000) on your browser
