@@ -2,13 +2,12 @@ import SidebarLayout from "../components/SidebarLayout";
 import React from "react";
 import Head from "next/head";
 import ExternalLink from "../components/ExternalLink";
-import { ExclamationIcon } from "@heroicons/react/outline";
 
 export default function About() {
   return (
     <>
       <Head>
-        <title>About Bit-Table</title>
+        <title>About Bitcoin Labels</title>
       </Head>
       <SidebarLayout title="About">
         <div className="flex flex-col gap-4">
@@ -17,14 +16,18 @@ export default function About() {
             <p>Features:</p>
             <ol className="list-decimal ml-6">
               <li>
-                Generate bc1 addresses from a zpub till a given depth (v0.1.0)
+                Generate bc1 addresses from a zpub till a given depth (v0.1)
+              </li>
+              <li>
+                Check status and balance of the associated addresses using a
+                trusted mempool.space instance (v0.2)
               </li>
             </ol>
           </div>
           <p>Built by Abhishek Shandilya.</p>
           <p>
             Report issues and share feedback on{" "}
-            <ExternalLink href="https://github.com/abhiShandy/bit-table/issues">
+            <ExternalLink href="https://github.com/abhiShandy/bitcoin-labels/issues">
               GitHub
             </ExternalLink>
             .

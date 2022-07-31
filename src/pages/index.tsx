@@ -1,20 +1,20 @@
 import Head from "next/head";
 import React, { MouseEventHandler, useContext, useState } from "react";
 import SidebarLayout from "../components/SidebarLayout";
-import XPubContext from "../contexts/XPub";
 import { useRouter } from "next/router";
+import XPubContext from "../contexts/XPub";
 import XPubFeature from "../components/xPub/Feature";
-// import MempoolSpaceContext from "../contexts/MempoolSpace";
-// import MempoolSpaceFeature from "../components/mempoolSpace/feature";
+import MempoolSpaceContext from "../contexts/MempoolSpace";
+import MempoolSpaceFeature from "../components/mempoolSpace/Feature";
 
 export default function HomePage() {
   const { xPub, setXPub, nAddress, setNAddress } = useContext(XPubContext);
-  // const {
-  //   url: mempoolSpaceUrl,
-  //   enabled: mempoolSpaceEnabled,
-  //   setUrl: setMempoolSpaceUrl,
-  //   setEnabled: setMempoolSpaceEnabled,
-  // } = useContext(MempoolSpaceContext);
+  const {
+    url: mempoolSpaceUrl,
+    enabled: mempoolSpaceEnabled,
+    setUrl: setMempoolSpaceUrl,
+    setEnabled: setMempoolSpaceEnabled,
+  } = useContext(MempoolSpaceContext);
 
   const [error, setError] = useState(!xPub);
 
@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Bit Table</title>
+        <title>Bitcoin Labels</title>
       </Head>
       <SidebarLayout title="Home">
         <XPubFeature
@@ -40,7 +40,8 @@ export default function HomePage() {
             setError(false);
           }}
         />
-        {/* <MempoolSpaceFeature
+        <hr className="my-4" />
+        <MempoolSpaceFeature
           enabled={mempoolSpaceEnabled}
           url={mempoolSpaceUrl}
           onError={() => setError(true)}
@@ -49,11 +50,11 @@ export default function HomePage() {
             setMempoolSpaceUrl(url);
             setError(false);
           }}
-        /> */}
+        />
 
         {error && (
           <button
-            className="mt-6 bg-red-200 text-white p-2 rounded"
+            className="mt-6 bg-red-200 text-white p-2 rounded w-full"
             disabled={true}
           >
             Invalid inputs!
@@ -61,7 +62,7 @@ export default function HomePage() {
         )}
         {!error && (
           <button
-            className="mt-6 bg-indigo-500 text-white p-2 rounded"
+            className="mt-6 bg-primary text-white p-2 rounded w-full"
             onClick={handleSubmit}
           >
             Submit!

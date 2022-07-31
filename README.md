@@ -1,12 +1,9 @@
-# Bit Table App
+# Bitcoin Labels
 
 ## Features
 
-1. Generate bc1 addresses from a zpub till a given depth
-
-## How to use online?
-
-Visit [bit-table.vercel.app](https://bit-table.vercel.app)
+1. Generate bc1 addresses from a zpub till a given depth (v0.1)
+2. Check status and balance of the associated addresses using a trusted mempool.space instance (v0.2)
 
 ## How to run locally?
 
@@ -14,7 +11,7 @@ Visit [bit-table.vercel.app](https://bit-table.vercel.app)
 2. Navigate to the client folder
 3. Install dependencies using `npm install`
 4. Run the app using `npm run dev`
-5. Open [localhost:3000](http://localhost:3000) on your browser
+5. Open [localhost:3047](http://localhost:3047) on your browser
 
 ## How to share feedback?
 
