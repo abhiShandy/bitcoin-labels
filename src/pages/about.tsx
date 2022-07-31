@@ -11,7 +11,9 @@ export default function About() {
       </Head>
       <SidebarLayout title="About">
         <div className="flex flex-col gap-4">
-          <p>An open-source project to account for every transaction.</p>
+          <p>
+            An open-source project to privately label your Bitcoin transactions.
+          </p>
           <div>
             <p>Features:</p>
             <ol className="list-decimal ml-6">

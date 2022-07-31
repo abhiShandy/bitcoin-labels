@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-labels",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Privately label your Bitcoin transactions.",
   "scripts": {
     "dev": "next dev",

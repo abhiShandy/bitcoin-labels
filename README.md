@@ -1,5 +1,7 @@
 # Bitcoin Labels
 
+Privately label your Bitcoin transactions.
+
 ## Features
 
 1. Generate bc1 addresses from a zpub till a given depth (v0.1)
