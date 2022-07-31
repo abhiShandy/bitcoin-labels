@@ -1,15 +1,22 @@
-import { PencilIcon } from "@heroicons/react/outline";
-import React from "react";
+import React, { useState } from "react";
 import Address from "./Address";
 import Label from "./Label";
+import LabelFormModal from "./LabelFormModal";
 
 export default function AddressItem({ address }: { address: string }) {
+  const [label, setLabel] = useState("");
+
   return (
     <>
       <Address address={address} className="" />
       <div className="flex justify-end">
-        <Label label="Sample" color="indigo" />
-        <PencilIcon className="h-4 my-auto" />
+        <Label label={label} color="indigo" />
+        <LabelFormModal
+          label={label}
+          onSubmit={(label) => {
+            setLabel(label);
+          }}
+        />
       </div>
     </>
   );
