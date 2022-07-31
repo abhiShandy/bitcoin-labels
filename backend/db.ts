@@ -5,7 +5,11 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 type Data = {
-  settings: { zpub: string; mempoolSpace: { enabled: boolean; url: string } };
+  settings: {
+    zpub: string;
+    depth: number;
+    mempoolSpace: { enabled: boolean; url: string };
+  };
 };
 
 export async function readDB() {
@@ -22,6 +26,7 @@ export async function readDB() {
   db.data = {
     settings: {
       zpub: "",
+      depth: 10,
       mempoolSpace: { enabled: false, url: "http://umbrel.local:3006/" },
     },
   };
@@ -29,16 +34,15 @@ export async function readDB() {
   return db;
 }
 
-export async function initializeDB() {
-  const db = await readDB();
-}
-
-export async function readSavedSettings() {
+export async function readSettings() {
   const db = await readDB();
   return db.data?.settings;
 }
 
 export async function saveSettings(settings: Data["settings"]) {
   const db = await readDB();
-  if (db.data) db.data.settings = settings;
+  if (db.data) {
+    db.data.settings = settings;
+    await db.write();
+  }
 }
