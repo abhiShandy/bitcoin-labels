@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import MempoolSpaceContext from "../../contexts/MempoolSpace";
 import Address from "../Address";
-import { ExternalLinkIcon } from "@heroicons/react/outline";
+import { ExternalLinkIcon, PencilIcon } from "@heroicons/react/outline";
 import Label from "../Label";
 
 type Stats = {
@@ -71,10 +71,11 @@ export default function AddressBalance({ address }) {
             </div>
           </div>
           <div className="flex text-xs">
-            <div className="w-3/6">
+            <div className="w-3/6 flex my-1">
               {txCount > 0 && <Label label="used" color="red" />}
               {txCount === 0 && <Label label="unused" color="green" />}
               <Label label="sample" color="indigo" />
+              <PencilIcon className="h-4 my-auto" />
             </div>
             <div className="w-2/6 text-right">{txCount} TX</div>
           </div>
