@@ -73,7 +73,7 @@ export default function AddressBalance({ address }) {
             </div>
           </div>
           <div className="flex text-xs">
-            <div className="w-3/6 flex my-1">
+            <div className="w-4/6 flex my-1">
               {txCount > 0 && <Label label="used" color="red" />}
               {txCount === 0 && <Label label="unused" color="green" />}
               <Label label={label} color="indigo" />
@@ -84,7 +84,7 @@ export default function AddressBalance({ address }) {
                 }}
               />
             </div>
-            <div className="w-2/6 text-right">{txCount} TX</div>
+            <div className="w-1/6 text-right">{txCount} TX</div>
           </div>
         </div>
       )}

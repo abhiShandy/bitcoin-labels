@@ -69,6 +69,9 @@ export default function LabelFormModal({
                       onChange={(e) => setLabelValue(e.target.value)}
                       placeholder="eg. Bought from Coinbase"
                     />
+                    <span className="text-xs text-gray-500">
+                      (tip: keep it short!)
+                    </span>
                   </div>
 
                   <div className="mt-4">
