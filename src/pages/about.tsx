@@ -34,13 +34,6 @@ export default function About() {
             </ExternalLink>
             .
           </p>
-          <p>
-            Frontend is hosted on{" "}
-            <ExternalLink href="https://vercel.com/abhishandy">
-              Vercel
-            </ExternalLink>
-            .
-          </p>
         </div>
       </SidebarLayout>
     </>
