@@ -62,7 +62,7 @@ export default function HomePage() {
         )}
         {!error && (
           <button
-            className="mt-6 bg-indigo-500 text-white p-2 rounded w-full"
+            className="mt-6 bg-primary text-white p-2 rounded w-full"
             onClick={handleSubmit}
           >
             Submit!

@@ -9,6 +9,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -77,7 +78,7 @@ export default function SidebarLayout({ children, title }) {
                 leaveFrom="translate-x-0"
                 leaveTo="-translate-x-full"
               >
-                <Dialog.Panel className="relative flex-1 flex flex-col max-w-xs w-full bg-indigo-700">
+                <Dialog.Panel className="relative flex-1 flex flex-col max-w-xs w-full bg-primary">
                   <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-300"
@@ -102,26 +103,27 @@ export default function SidebarLayout({ children, title }) {
                     </div>
                   </Transition.Child>
                   <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
-                    {/* <div className="flex-shrink-0 flex items-center px-4">
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
-                        alt="Workflow"
+                    <div className="flex-shrink-0 flex items-center px-4">
+                      <Image
+                        src="/logo.svg"
+                        alt="Bitcoin Labels Logo"
+                        height={100}
+                        width={400}
                       />
-                    </div> */}
+                    </div>
                     <nav className="mt-5 px-2 space-y-1">
                       {navigation.map((item) => (
                         <Link key={item.name} href={item.href}>
                           <span
                             className={classNames(
                               item.current
-                                ? "bg-indigo-800 text-white"
-                                : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
+                                ? "bg-secondary-300 text-white"
+                                : "text-white hover:bg-secondary-100 hover:bg-opacity-75",
                               "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                             )}
                           >
                             <item.icon
-                              className="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
+                              className="mr-4 flex-shrink-0 h-6 w-6 text-secondary-100"
                               aria-hidden="true"
                             />
                             {item.name}
@@ -130,7 +132,7 @@ export default function SidebarLayout({ children, title }) {
                       ))}
                     </nav>
                   </div>
-                  {/* <div className="flex-shrink-0 flex border-t border-indigo-800 p-4">
+                  {/* <div className="flex-shrink-0 flex border-t border-secondary-300 p-4">
                     <a href="#" className="flex-shrink-0 group block">
                       <div className="flex items-center">
                         <div>
@@ -163,28 +165,29 @@ export default function SidebarLayout({ children, title }) {
         {/* Static sidebar for desktop */}
         <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex-1 flex flex-col min-h-0 bg-indigo-700">
+          <div className="flex-1 flex flex-col min-h-0 bg-primary">
             <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-              {/* <div className="flex items-center flex-shrink-0 px-4">
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
-                  alt="Workflow"
+              <div className="flex items-center flex-shrink-0 px-4">
+                <Image
+                  src="/logo.svg"
+                  alt="Bitcoin Labels Logo"
+                  height={100}
+                  width={400}
                 />
-              </div> */}
+              </div>
               <nav className="mt-5 flex-1 px-2 space-y-1">
                 {navigation.map((item) => (
                   <Link key={item.name} href={item.href}>
                     <span
                       className={classNames(
                         item.current
-                          ? "bg-indigo-800 text-white"
-                          : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
+                          ? "bg-secondary-300 text-white"
+                          : "text-white hover:bg-secondary-100 hover:bg-opacity-75",
                         "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                       )}
                     >
                       <item.icon
-                        className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300"
+                        className="mr-3 flex-shrink-0 h-6 w-6 text-secondary-100"
                         aria-hidden="true"
                       />
                       {item.name}
@@ -193,7 +196,7 @@ export default function SidebarLayout({ children, title }) {
                 ))}
               </nav>
             </div>
-            {/* <div className="flex-shrink-0 flex border-t border-indigo-800 p-4">
+            {/* <div className="flex-shrink-0 flex border-t border-secondary-300 p-4">
               <a href="#" className="flex-shrink-0 w-full group block">
                 <div className="flex items-center">
                   <div>
@@ -218,7 +221,7 @@ export default function SidebarLayout({ children, title }) {
           <div className="sticky top-0 z-10 md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3 bg-gray-100">
             <button
               type="button"
-              className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
               onClick={() => setSidebarOpen(true)}
             >
               <span className="sr-only">Open sidebar</span>

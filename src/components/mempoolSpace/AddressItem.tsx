@@ -65,7 +65,7 @@ export default function AddressBalance({ address }) {
                 target="_blank"
                 rel="noreferrer"
               >
-                <ExternalLinkIcon className="h-4 text-indigo-500" />
+                <ExternalLinkIcon className="h-4 text-blue-500" />
               </a>
             </div>
           </div>

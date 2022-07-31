@@ -17,7 +17,11 @@ export default function About() {
             <p>Features:</p>
             <ol className="list-decimal ml-6">
               <li>
-                Generate bc1 addresses from a zpub till a given depth (v0.1.0)
+                Generate bc1 addresses from a zpub till a given depth (v0.1)
+              </li>
+              <li>
+                Check status and balance of the associated addresses using a
+                trusted mempool.space instance (v0.2)
               </li>
             </ol>
           </div>

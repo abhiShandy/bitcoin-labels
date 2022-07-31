@@ -2,8 +2,8 @@
 
 ## Features
 
-1. Generate bc1 addresses from a zpub till a given depth
-2. Check status and balance of the associated addresses using a trusted mempool.space instance
+1. Generate bc1 addresses from a zpub till a given depth (v0.1)
+2. Check status and balance of the associated addresses using a trusted mempool.space instance (v0.2)
 
 ## How to use online?
 
