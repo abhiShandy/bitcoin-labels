@@ -1,17 +1,12 @@
 import { Switch } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import MempoolSpaceContext from "../../contexts/MempoolSpace";
 
 /**
  * React component to enable using mempool.space
  */
-export default function MempoolSpaceToggle({
-  value,
-  onChange,
-}: {
-  value: boolean;
-  onChange: (value: boolean) => void;
-}) {
-  const [enabled, setEnabled] = useState(value);
+export default function MempoolSpaceToggle() {
+  const { enabled, setEnabled } = useContext(MempoolSpaceContext);
 
   return (
     <div className="mt-2 flex place-content-between">
@@ -20,7 +15,6 @@ export default function MempoolSpaceToggle({
         checked={enabled}
         onChange={(e) => {
           setEnabled(e);
-          onChange(e);
         }}
         className={`${enabled ? "bg-green-500" : "bg-gray-500"}
           relative inline-flex h-[24px] w-[48px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}

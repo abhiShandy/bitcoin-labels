@@ -1,5 +1,10 @@
 import Head from "next/head";
-import React, { MouseEventHandler, useContext, useState } from "react";
+import React, {
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import SidebarLayout from "../components/SidebarLayout";
 import { useRouter } from "next/router";
 import XPubContext from "../contexts/XPub";
@@ -17,13 +22,13 @@ export default function HomePage() {
     setEnabled: setMempoolSpaceEnabled,
   } = useContext(MempoolSpaceContext);
 
-  const [error, setError] = useState(!xPub);
+  const [error, setError] = useState(false);
 
   const router = useRouter();
 
   const handleSubmit: MouseEventHandler<HTMLButtonElement> = async (e) => {
     try {
-      const response = await axios.post("http://localhost:3001/settings", {
+      await axios.post("http://localhost:3001/settings", {
         zpub: xPub,
         depth: nAddress,
         mempoolSpace: { enabled: mempoolSpaceEnabled, url: mempoolSpaceUrl },
@@ -34,33 +39,33 @@ export default function HomePage() {
     }
   };
 
+  useEffect(() => {
+    const getSettings = async () => {
+      try {
+        const response = await axios.get<{
+          zpub: string;
+          depth: number;
+          mempoolSpace: { enabled: boolean; url: string };
+        }>("http://localhost:3001/settings");
+        setXPub(response.data.zpub);
+        setNAddress(response.data.depth);
+        setMempoolSpaceEnabled(response.data.mempoolSpace.enabled);
+        setMempoolSpaceUrl(response.data.mempoolSpace.url);
+      } catch (error) {}
+    };
+    getSettings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <Head>
         <title>Bitcoin Labels</title>
       </Head>
       <SidebarLayout title="Home">
-        <XPubFeature
-          xPub={xPub}
-          nAddress={nAddress}
-          onError={() => setError(true)}
-          onSuccess={(xPub, nAddress) => {
-            setXPub(xPub);
-            setNAddress(nAddress);
-            setError(false);
-          }}
-        />
+        <XPubFeature onError={() => setError(true)} />
         <hr className="my-4" />
-        <MempoolSpaceFeature
-          enabled={mempoolSpaceEnabled}
-          url={mempoolSpaceUrl}
-          onError={() => setError(true)}
-          onSuccess={(url) => {
-            setMempoolSpaceEnabled(true);
-            setMempoolSpaceUrl(url);
-            setError(false);
-          }}
-        />
+        <MempoolSpaceFeature onError={() => setError(true)} />
 
         {error && (
           <button

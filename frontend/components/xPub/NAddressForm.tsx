@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import XPubContext from "../../contexts/XPub";
 
-export default function NAddressForm({
-  value,
-  onChange,
-}: {
-  value: number;
-  onChange: (nAddress: number) => void;
-}) {
-  const [nAddress, setNAddress] = useState(value);
+export default function NAddressForm() {
+  const { nAddress, setNAddress } = useContext(XPubContext);
   return (
     <div className="flex place-content-between mt-4">
       <label className="my-auto">Address Depth</label>
@@ -21,7 +16,6 @@ export default function NAddressForm({
         onChange={(e) => {
           const parsedValue = parseFloat(e.target.value);
           setNAddress(parsedValue);
-          onChange(parsedValue);
         }}
       />
     </div>

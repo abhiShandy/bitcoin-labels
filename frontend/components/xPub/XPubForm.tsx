@@ -1,24 +1,16 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEventHandler, useContext, useState } from "react";
+import XPubContext from "../../contexts/XPub";
 import xpubConverter from "../../utils/xpubConverter";
 
-export default function XPubForm({
-  value,
-  onError,
-  onSuccess,
-}: {
-  value: string;
-  onError: () => void;
-  onSuccess: (xpub: string) => void;
-}) {
-  const [xpub, setXpub] = useState(value);
+export default function XPubForm({ onError }: { onError: () => void }) {
+  const { xPub, setXPub } = useContext(XPubContext);
   const [error, setError] = useState(false);
 
   const checkXpub: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setXpub(e.target.value);
+    setXPub(e.target.value);
     try {
       xpubConverter(e.target.value);
       setError(false);
-      onSuccess(e.target.value);
     } catch (error) {
       setError(true);
       onError();
@@ -32,7 +24,7 @@ export default function XPubForm({
         className={`border-2 rounded p-2 h-32 lg:h-auto ${
           error ? "border-red-500 outline-red-500" : ""
         }`}
-        value={xpub}
+        value={xPub}
         onChange={checkXpub}
       ></textarea>
     </div>

@@ -1,40 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import MempoolSpaceToggle from "./MempoolSpaceToggle";
 import MempoolSpaceURLForm from "./MempoolSpaceURLForm";
+import MempoolSpaceContext from "../../contexts/MempoolSpace";
 
 export default function MempoolSpaceFeature({
-  enabled = false,
-  url,
   onError,
-  onSuccess,
 }: {
-  enabled: boolean;
-  url: string;
   onError: () => void;
-  onSuccess: (url: string, enabled: boolean) => void;
 }) {
-  const [enabledValue, setEnabledValue] = useState(enabled);
-  const [urlValue, setUrlValue] = useState(url);
-
+  const { enabled } = useContext(MempoolSpaceContext);
   return (
     <>
-      <MempoolSpaceToggle
-        value={enabledValue}
-        onChange={(val) => {
-          setEnabledValue(val);
-          onSuccess(urlValue, val);
-        }}
-      />
-      {enabledValue && (
-        <MempoolSpaceURLForm
-          value={urlValue}
-          onError={onError}
-          onSuccess={(url) => {
-            setUrlValue(url);
-            onSuccess(url, enabledValue);
-          }}
-        />
-      )}
+      <MempoolSpaceToggle />
+      {enabled && <MempoolSpaceURLForm onError={onError} />}
     </>
   );
 }

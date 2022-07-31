@@ -1,25 +1,22 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEventHandler, useContext, useState } from "react";
+import MempoolSpaceContext from "../../contexts/MempoolSpace";
+
 export default function MempoolSpaceURLForm({
-  value,
   onError,
-  onSuccess,
 }: {
-  value: string;
   onError: () => void;
-  onSuccess: (url: string) => void;
 }) {
-  const [explorerURL, setExplorerURL] = useState(value);
+  const { url, setUrl } = useContext(MempoolSpaceContext);
   const [error, setError] = useState(false);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const url = e.target.value;
-    setExplorerURL(url);
+    setUrl(url);
     if (
       (url.substring(0, 7) === "http://" ||
         url.substring(0, 8) === "https://") &&
       url[url.length - 1] === "/"
     ) {
-      onSuccess(url);
       setError(false);
     } else {
       onError();
@@ -36,7 +33,7 @@ export default function MempoolSpaceURLForm({
           error ? "outline-red-500" : ""
         }`}
         required
-        value={explorerURL}
+        value={url}
         onChange={handleChange}
       />
     </div>
