@@ -31,7 +31,7 @@ export default function AddressPage() {
   return (
     <>
       <Head>
-        <title>Address | Bit Table</title>
+        <title>Address | Bitcoin Labels</title>
       </Head>
       <SidebarLayout title="Address">
         <AddressList addressList={addressList} />

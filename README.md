@@ -5,10 +5,6 @@
 1. Generate bc1 addresses from a zpub till a given depth (v0.1)
 2. Check status and balance of the associated addresses using a trusted mempool.space instance (v0.2)
 
-## How to use online?
-
-Visit [https://bit-table.vercel.app](bit-table.vercel.app)
-
 ## How to run locally?
 
 1. Clone this repo

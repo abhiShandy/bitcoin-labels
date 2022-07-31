@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Bit Table</title>
+        <title>Bitcoin Labels</title>
       </Head>
       <SidebarLayout title="Home">
         <XPubFeature

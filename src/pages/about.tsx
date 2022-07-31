@@ -2,13 +2,12 @@ import SidebarLayout from "../components/SidebarLayout";
 import React from "react";
 import Head from "next/head";
 import ExternalLink from "../components/ExternalLink";
-import { ExclamationIcon } from "@heroicons/react/outline";
 
 export default function About() {
   return (
     <>
       <Head>
-        <title>About Bit-Table</title>
+        <title>About Bitcoin Labels</title>
       </Head>
       <SidebarLayout title="About">
         <div className="flex flex-col gap-4">
@@ -28,7 +27,7 @@ export default function About() {
           <p>Built by Abhishek Shandilya.</p>
           <p>
             Report issues and share feedback on{" "}
-            <ExternalLink href="https://github.com/abhiShandy/bit-table/issues">
+            <ExternalLink href="https://github.com/abhiShandy/bitcoin-labels/issues">
               GitHub
             </ExternalLink>
             .
